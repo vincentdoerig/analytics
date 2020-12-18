@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import {anyFilters} from '../query'
 
 export default class CurrentVisitors extends React.Component {
   constructor(props) {
@@ -23,9 +24,10 @@ export default class CurrentVisitors extends React.Component {
 
   render() {
     const { currentVisitors } = this.state;
+    if (anyFilters(this.props.query)) { return null }
     if (currentVisitors !== null) {
       return (
-        <Link to={`/${encodeURIComponent(this.props.site.domain)}?period=realtime`} className="block text-sm font-bold text-gray-500 dark:text-gray-300">
+        <Link to={`/${encodeURIComponent(this.props.site.domain)}?period=realtime`} className="block text-sm font-bold text-gray-500 dark:text-gray-300 mr-4">
           <svg className="w-2 mr-2 fill-current text-green-500 inline" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <circle cx="8" cy="8" r="8"/>
           </svg>

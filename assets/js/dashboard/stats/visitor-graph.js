@@ -349,7 +349,7 @@ export default class VisitorGraph extends React.Component {
 
   render() {
     return (
-      <div className="w-full relative bg-white dark:bg-gray-825 shadow-xl rounded mt-6 main-graph">
+      <div className="w-full relative bg-white dark:bg-gray-825 shadow-xl rounded main-graph">
         { this.state.loading && <div className="loading pt-24 sm:pt-32 md:pt-48 mx-auto"><div></div></div> }
         { this.renderInner() }
       </div>

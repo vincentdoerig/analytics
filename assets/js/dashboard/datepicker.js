@@ -3,7 +3,7 @@ import Transition from "../transition.js";
 import { withRouter, Link } from 'react-router-dom'
 import Flatpickr from "react-flatpickr";
 import {shiftDays, shiftMonths, formatDay, formatDayShort, formatMonthYYYY, formatISO, isToday, lastMonth, nowForSite, isSameMonth} from './date'
-import { navigateToQuery, QueryLink } from './query.js'
+import { navigateToQuery, QueryLink, anyFilters } from './query.js'
 
 
 class DatePicker extends React.Component {
@@ -114,6 +114,7 @@ class DatePicker extends React.Component {
 
   renderArrows() {
     const {query} = this.props
+    if (anyFilters(query)) { return null }
 
     if (query.period === 'month') {
       const prevDate = formatISO(shiftMonths(query.date, -1))

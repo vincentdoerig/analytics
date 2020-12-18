@@ -68,7 +68,7 @@ function renderFilter(history, [key, value], query) {
   }
 
   return (
-    <span key={key} title={value} className="inline-flex bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow text-sm rounded py-2 px-3 mr-4 mb-2">
+    <span key={key} title={value} className="inline-flex bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 shadow text-sm rounded py-2 px-3 mr-4">
       {filterText(key, value, query)} <b className="ml-1 cursor-pointer" onClick={removeFilter}>✕</b>
     </span>
   )
@@ -81,7 +81,7 @@ function Filters({query, history, location}) {
 
   if (appliedFilters.length > 0) {
     return (
-      <div className="mt-4">
+      <div>
         { appliedFilters.map((filter) => renderFilter(history, filter, query)) }
       </div>
     )
